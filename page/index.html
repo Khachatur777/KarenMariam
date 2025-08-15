@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Karen & Mariam</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Armenian' rel='stylesheet'>
+    <link rel="stylesheet" href="/assets/aos_css_and_js/aos.css">
+    <script src="/assets/aos_css_and_js/aos.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="blocks">
+        <div class="first_block">
+            <img src="/assets/images/1.jpeg" alt="" class="first_pic">
+            <div class="first_block_info">
+                <p class="names">Կարեն և Մարիամ</p>
+                <p class="dates item" data-aos="zoom-in">24 Սեպտեմբեր 2025</p>
+            </div>
+        </div>
+        <div class="second_block item" data-aos="flip-left">
+            <p class="dear_guests">Սիրելի հյուրեր </P>
+            <div class="invitation_text"> Մեծագույն սիրով ու մասնակցության ակնկալիքով հրավիրում ենք Ձեզ մեզ հետ տոնելու մեր կյանքի կարևորագույն
+                իրադարձություններից մեկը:
+            </div>
+            <p class="wedding_day">24 Սեպտեմբեր 2025</p>
+            <audio autoplay loop>
+                <source src="/assets/audio/love-story.mp3" type="audio/ogg">
+                <source src="/assets/audio/love-story.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="three_block" style="display: flex; justify-content: space-around; margin-bottom: 30px">
+            <div class="three_block_1">
+                <div class="day_plan_title">
+                    Պսակադրություն
+                </div>
+                <div class="time">
+                    <img src="/assets/images/clock_icon.png" alt="" style="margin-right: 10px">
+                    14:00
+                </div>
+                <div class="church_name">Սուրբ Հովհաննես Եկեղեցի</div>
+            </div>
+            <div class="three_block_2">
+                <div class="day_plan_title">
+                    Հանդիսություն
+                </div>
+                <div class="time">
+                    <img src="/assets/images/clock_icon.png" alt="" style="margin-right: 10px">
+                    17:00
+                </div>
+                <div class="church_name">  <span style="font-size: 12px"><<</span>Հրաշք Այգի  ռեստորան</div>
+            </div>
+        </div>
+
+
+
+        <div class="last_block">
+            <h1>Կսպասենք   Ձեզ....</h1>
+
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <div class="label">օր</div>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <div class="label">ժամ</div>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <div class="label">րոպե</div>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <div class="label">վայրկյան</div>
+                </div>
+            </div>
+            <div style="margin-top: 30px; font-size: 36px">Սիրով Կարեն և Մարիամ</div>
+        </div>
+    </div>
+
+</div>
+<script>
+    AOS.init({
+        duration: 1200,
+    })
+
+</script>
+<script>
+    // Set your target date here (YYYY-MM-DDTHH:MM:SS format)
+    const targetDate = new Date("2025-09-24T17:00:00").getTime();
+
+    const countdown = () => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            document.querySelector(".countdown").innerHTML = "Ժամանակը սպառվել է";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = String(days).padStart(2, "0");
+        document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+        document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+        document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+    };
+
+    // Update every second
+    setInterval(countdown, 1000);
+    countdown(); // Run immediately
+</script>
+<!--<script src="https://cdn.logwork.com/widget/text.js"></script>-->
+<!--<a href="https://logwork.com/current-time-in-yerevan-armenia" class="clock-widget-text" data-timezone="Asia/Yerevan"-->
+<!--   data-language="arm">Yerevan, Armenia</a>-->
+</body>
+</html>

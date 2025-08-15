@@ -1,0 +1,139 @@
+
+.container{
+    /max-width: 750px;/
+    width: 100%;
+    margin: 0 auto;
+
+}
+.blocks{
+    display: flex;
+    flex-direction: column;
+}
+@font-face {
+    font-family: 'Vrdznagir';
+    src: url('../assets/fonts/Vrdznagir.otf');
+}
+
+body {
+    background-image: url("../assets/images/body.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+    margin: 0;
+    padding: 0;
+    font-family: 'Vrdznagir';
+}
+.first_block{
+    position: relative;
+    /max-width: 750px;/
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+.first_pic{
+    width: 100%;
+}
+.first_block_info{
+    position: absolute;
+    transform:translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+.first_block_info .names{
+  text-align: center;
+    font-size: 72px;
+}
+.first_block_info .dates{
+    text-align: center;
+    font-size: 48px;
+}
+.second_block{
+    margin: 40px auto;
+    text-align: center;
+    max-width: 550px;
+    width: 100%;
+}
+
+.dear_guests{
+    font-size: 48px;
+    font-weight: 700;
+    color: #411c00;
+}
+.invitation_text{
+    font-size: 28px;
+}
+.wedding_day{
+    margin-top: 70px;
+    font-size: 32px;
+    color: #2c1201;
+}
+html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
+    opacity: 1 !important;
+}
+․three_block{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+.day_plan_title{
+    font-size: 32px;
+    font-weight: 600;
+    color: #411c00;
+}
+.three_block_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.time {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 20px;
+}
+.church_name{
+    font-size: 21px;
+}
+.last_block{
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 32px;
+}
+
+.label {
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.time-box span {
+    font-weight: bold;
+}
