@@ -186,6 +186,12 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     background-image: url('../assets/images/last_pic.jpg');
     filter: grayscale(100%);
     background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background-position: center;
+    -webkit-background-position: center;
+
     -webkit-backgound-size: cover;
     -o-backgound-size: cover;
     -moz-backgound-size: cover;
@@ -193,7 +199,7 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     -webkit-background-attachment: fixed;
     -o-background-attachment: fixed;
     -moz-background-attachment: fixed;
-    background-position: center;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -215,7 +221,6 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     filter: grayscale(100%);
     width: 100%;
     opacity: 0.65;
-)
 }
 
 .last_block {
@@ -415,6 +420,104 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
 @media screen and (max-width: 424px) {
     .second_block {
         margin: 20px auto;
+    }
+}
+
+/* Mobile responsive fixes for .last_block_general */
+@media screen and (max-width: 768px) {
+    .last_block_general {
+        height: 60vh;
+        margin-top: 50px;
+        background-attachment: scroll;
+        -webkit-background-attachment: scroll;
+        background-size: cover;
+        -webkit-background-size: cover;
+        background-position: center center;
+        -webkit-background-position: center center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .last_block_general {
+        height: 50vh;
+        margin-top: 30px;
+    }
+    
+    .last_block h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .countdown {
+        font-size: 20px;
+        gap: 15px;
+    }
+    
+    .last_block_names {
+        font-size: 22px;
+        margin-top: 20px;
+    }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .last_block_general {
+        background-attachment: scroll;
+        -webkit-background-attachment: scroll;
+        background-size: cover;
+        -webkit-background-size: cover;
+        background-position: center center;
+        -webkit-background-position: center center;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 360px) {
+    .last_block_general {
+        height: 45vh;
+        margin-top: 20px;
+    }
+    
+    .last_block {
+        max-width: 280px;
+        padding: 0px 5px;
+    }
+    
+    .last_block h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .countdown {
+        font-size: 18px;
+        gap: 10px;
+    }
+    
+    .label {
+        font-size: 16px;
+    }
+    
+    .last_block_names {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+}
+
+/* Performance optimizations for mobile */
+@media screen and (max-width: 768px) {
+    .last_block_general {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: auto;
+    }
+    
+    .last_block_general::before {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 }
 
