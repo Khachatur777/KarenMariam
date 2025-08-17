@@ -186,9 +186,13 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     background-image: url('../assets/images/last_pic.jpg');
     filter: grayscale(100%);
     background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    -moz-background-size: cover;
+    -webkit-backgound-size: cover;
+    -o-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-attachment: fixed;
+    -webkit-background-attachment: fixed;
+    -o-background-attachment: fixed;
+    -moz-background-attachment: fixed;
     background-position: center;
     display: flex;
     align-items: center;
@@ -211,6 +215,7 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     filter: grayscale(100%);
     width: 100%;
     opacity: 0.65;
+)
 }
 
 .last_block {
@@ -413,32 +418,5 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     }
 }
 
-/* iOS Safari specific fixes */
-@supports (-webkit-touch-callout: none) {
-    .last_block_general {
-        background-attachment: scroll;
-        -webkit-background-attachment: scroll;
-        background-size: cover;
-        -webkit-background-size: cover;
-    }
-}
 
-/* Additional iOS fixes for older versions */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    .last_block_general {
-        background-attachment: scroll;
-        background-size: cover;
-    }
-}
 
-/* Mobile iOS specific fixes */
-@media screen and (max-width: 768px) {
-    .last_block_general {
-        background-attachment: scroll;
-        -webkit-background-attachment: scroll;
-        background-size: cover;
-        -webkit-background-size: cover;
-        background-position: center center;
-        -webkit-background-position: center center;
-    }
-}
