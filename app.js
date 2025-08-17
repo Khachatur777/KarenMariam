@@ -8,7 +8,7 @@ app.use(express.static('page'));
 app.use('/assets', express.static('assets'));
 app.use('/page', express.static('page'));
 
-app.get('/join', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/page/index.html');
 })
 

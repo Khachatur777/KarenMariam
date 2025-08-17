@@ -50,8 +50,10 @@ h1 {
 .first_block_info {
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 40%;
+    top: 55%;
     left: 50%;
+    max-width: 900px;
+    width: 100%;
 }
 
 .first_block_info .names {
@@ -62,6 +64,7 @@ h1 {
 .first_block_info .dates {
     text-align: center;
     font-size: 72px;
+    margin-top: 20px;
 }
 
 .second_block {
@@ -182,8 +185,14 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     height: 70vh;
     background-image: url('../assets/images/last_pic.jpg');
     filter: grayscale(100%);
-    background-attachment: fixed;
     background-size: cover;
+    -webkit-backgound-size: cover;
+    -o-backgound-size: cover;
+    -moz-backgound-size: cover;
+    background-attachment: fixed;
+    -webkit-background-attachment: fixed;
+    -o-background-attachment: fixed;
+    -moz-background-attachment: fixed;
     background-position: center;
     display: flex;
     align-items: center;
@@ -199,7 +208,7 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.1);
+    /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 .calculate_pic {
@@ -374,7 +383,7 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
 
 @media screen and (max-width: 600px) {
     .dear_guests {
-        font-size: 28px;
+        font-size: 36px;
     }
 
     .three_block {
@@ -394,44 +403,20 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
 }
 
 @media screen and (max-width: 475px) {
-    .first_block_info .names {
-        font-size: 32px;
-    }
+    /*.first_block_info .names {*/
+    /*    font-size: 32px;*/
+    /*}*/
 
-    .first_block_info .dates {
-        font-size: 18px;
-    }
+    /*.first_block_info .dates {*/
+    /*    font-size: 18px;*/
+    /*}*/
 }
 
 @media screen and (max-width: 424px) {
-    .first_block_info .names {
-        font-size: 28px;
-    }
-
-    .first_block_info .dates {
-        font-size: 18px;
-    }
-
-    .day_plan_title {
-        font-size: 24px;
-    }
-
     .second_block {
         margin: 20px auto;
     }
 }
 
-@media screen and (max-width: 376px) {
-    .first_block_info .names {
-        font-size: 24px;
-    }
 
-    .first_block_info .dates {
-        font-size: 16px;
-    }
-
-    .day_plan_title {
-        font-size: 21px;
-    }
-}
 
