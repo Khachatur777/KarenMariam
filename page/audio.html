@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Player</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <audio id="audioPlayer" autoplay loop preload="auto">
+        <source src="/assets/audio/love-story.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script>
+        const audio = document.getElementById('audioPlayer');
+        let attempts = 0;
+        const maxAttempts = 50;
+        
+        // Set audio properties
+        audio.volume = 0.5;
+        
+        // Function to start audio
+        function startAudio() {
+            if (attempts >= maxAttempts) return;
+            attempts++;
+            
+            console.log(`Audio attempt ${attempts}/${maxAttempts}`);
+            
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log('Audio started successfully in iframe!');
+                }).catch(error => {
+                    console.log('Audio play failed in iframe:', error);
+                    setTimeout(startAudio, 1000);
+                });
+            }
+        }
+        
+        // Try to start immediately
+        startAudio();
+        
+        // Try on load
+        window.addEventListener('load', startAudio);
+        
+        // Try on DOM ready
+        document.addEventListener('DOMContentLoaded', startAudio);
+        
+        // Periodic attempts
+        setInterval(startAudio, 2000);
+        
+        // Try on any interaction
+        document.addEventListener('click', startAudio);
+        document.addEventListener('touchstart', startAudio);
+        document.addEventListener('keydown', startAudio);
+        document.addEventListener('scroll', startAudio);
+        document.addEventListener('mousemove', startAudio);
+        
+        // Multiple delayed attempts
+        setTimeout(startAudio, 1000);
+        setTimeout(startAudio, 3000);
+        setTimeout(startAudio, 5000);
+        setTimeout(startAudio, 10000);
+    </script>
+</body>
+</html>

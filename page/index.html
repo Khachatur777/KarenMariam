@@ -13,7 +13,7 @@
 <div class="container">
     <div class="blocks">
         <div class="first_block">
-            <img src="../assets/images/GeneralPic1.JPG" alt="img" class="first_pic">
+            <img src="../assets/images/GeneralPic1.JPG" alt="" class="first_pic">
             <div class="first_block_info">
                 <p class="names">Կարեն և Մարիամ</p>
                 <p class="dates item" data-aos="zoom-in">22 Սեպտեմբեր 2025</p>
@@ -25,11 +25,12 @@
                 իրադարձություններից մեկը:
             </div>
             <p class="wedding_day">22 Սեպտեմբեր 2025</p>
-            <audio autoplay loop>
-                <source src="../assets/audio/love-story.mp3"  type="audio/mp3">
-                <source src="../assets/audio/love-story.mp3" type="audio/mp3">
+            <audio id="backgroundAudio" preload="auto" muted>
+                <source src="/assets/audio/love-story.mp3" type="audio/mp3">
                 Your browser does not support the audio element.
             </audio>
+            <!-- Hidden iframe for audio -->
+            <iframe id="audioFrame" style="display:none; width:1px; height:1px;" src="/page/audio.html"></iframe>
         </div>
         <div class="three_block item" data-aos="zoom-out">
             <div class="three_block_1">
@@ -95,6 +96,167 @@
         duration: 1200,
     })
 
+    // Simple and aggressive HTML5 audio autoplay
+    const audio = document.getElementById('backgroundAudio');
+    const audioFrame = document.getElementById('audioFrame');
+    let audioStarted = false;
+
+    // Function to start audio
+    function startAudio() {
+        if (audioStarted) return;
+        
+        console.log('Attempting to start audio...');
+        
+        audio.volume = 0.5;
+        audio.loop = true;
+        audio.muted = false;
+        
+        const playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                audioStarted = true;
+                console.log('Audio started successfully!');
+            }).catch(error => {
+                console.log('Audio play failed:', error);
+                // Retry after delay
+                setTimeout(startAudio, 1000);
+            });
+        }
+    }
+
+    // Function to reload iframe
+    function reloadAudioFrame() {
+        console.log('Reloading audio iframe...');
+        audioFrame.src = audioFrame.src;
+    }
+
+    // Try to start audio immediately
+    startAudio();
+
+    // Try on page load
+    window.addEventListener('load', () => {
+        console.log('Page loaded, trying to start audio...');
+        startAudio();
+        setTimeout(reloadAudioFrame, 2000);
+    });
+
+    // Try on DOM ready
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM ready, trying to start audio...');
+        startAudio();
+    });
+
+    // Try on any user interaction
+    const interactionEvents = [
+        'click', 'touchstart', 'touchend', 'mousedown', 'mouseup', 
+        'keydown', 'keyup', 'scroll', 'wheel', 'pointerdown', 'pointerup',
+        'mousemove', 'focus', 'blur'
+    ];
+    
+    interactionEvents.forEach(event => {
+        document.addEventListener(event, () => {
+            if (!audioStarted) {
+                console.log(`User interaction detected: ${event}, starting audio...`);
+                startAudio();
+                reloadAudioFrame();
+            }
+        }, { once: false, passive: true });
+    });
+
+    // Aggressive autoplay attempts
+    let attempts = 0;
+    const maxAttempts = 100;
+    
+    function attemptAutoplay() {
+        if (audioStarted || attempts >= maxAttempts) return;
+        
+        attempts++;
+        console.log(`Autoplay attempt ${attempts}/${maxAttempts}`);
+        startAudio();
+        reloadAudioFrame();
+    }
+
+    // Start aggressive attempts
+    setTimeout(() => {
+        console.log('Starting aggressive autoplay attempts...');
+        attemptAutoplay();
+    }, 500);
+
+    // Periodic attempts
+    setInterval(attemptAutoplay, 1000);
+
+    // Resume audio when page becomes visible
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && audioStarted) {
+            console.log('Page visible, resuming audio...');
+            audio.play().catch(() => {});
+            reloadAudioFrame();
+        }
+    });
+
+    // Handle page focus
+    window.addEventListener('focus', () => {
+        if (audioStarted) {
+            console.log('Page focused, resuming audio...');
+            audio.play().catch(() => {});
+        }
+    });
+
+    // Force play on any interaction
+    document.addEventListener('click', () => {
+        if (!audioStarted) {
+            console.log('Click detected, forcing audio start...');
+            startAudio();
+            reloadAudioFrame();
+        }
+    }, { once: false });
+
+    // Try to start on mouse movement
+    document.addEventListener('mousemove', () => {
+        if (!audioStarted) {
+            console.log('Mouse movement detected, starting audio...');
+            startAudio();
+            reloadAudioFrame();
+        }
+    }, { once: true });
+
+    // Try to start on keyboard input
+    document.addEventListener('keydown', () => {
+        if (!audioStarted) {
+            console.log('Keyboard input detected, starting audio...');
+            startAudio();
+            reloadAudioFrame();
+        }
+    }, { once: true });
+
+    // Try to start on scroll
+    document.addEventListener('scroll', () => {
+        if (!audioStarted) {
+            console.log('Scroll detected, starting audio...');
+            startAudio();
+            reloadAudioFrame();
+        }
+    }, { once: true });
+
+    // Try to start on window focus
+    window.addEventListener('focus', () => {
+        if (!audioStarted) {
+            console.log('Window focus detected, starting audio...');
+            startAudio();
+            reloadAudioFrame();
+        }
+    }, { once: true });
+
+    // Multiple delayed attempts
+    setTimeout(startAudio, 1000);
+    setTimeout(startAudio, 2000);
+    setTimeout(startAudio, 3000);
+    setTimeout(startAudio, 5000);
+    setTimeout(startAudio, 10000);
+    
+    // Reload iframe periodically
+    setInterval(reloadAudioFrame, 5000);
 </script>
 <script>
     // Set your target date here (YYYY-MM-DDTHH:MM:SS format)
