@@ -191,15 +191,6 @@ html:not(.no-js) [data-aos^=fade][data-aos^=fade] {
     -moz-background-size: cover;
     background-position: center;
     -webkit-background-position: center;
-
-    -webkit-backgound-size: cover;
-    -o-backgound-size: cover;
-    -moz-backgound-size: cover;
-    background-attachment: fixed;
-    -webkit-background-attachment: fixed;
-    -o-background-attachment: fixed;
-    -moz-background-attachment: fixed;
-
     display: flex;
     align-items: center;
     justify-content: center;
